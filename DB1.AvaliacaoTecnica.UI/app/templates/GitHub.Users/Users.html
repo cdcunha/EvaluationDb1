@@ -1,0 +1,31 @@
+﻿<div class="page-header">
+    <br/>
+    <h1>Usuários do GitHub</h1>
+    <div ng-show="loading" class="loading">Carregando...</div>
+    <div ng-show="userNotFound" class="userNotFound">Nenhum Usuário foi encontrado</div>
+    <hidden ng-repeat="x in UsersData" ng-class="{last: $last}" value={{x.login}} id="LastLogin"/>
+    <p>
+        <a ng-repeat="x in [UsersData[UsersData.length-1]] track by $index" href="#/github.users/Next/{{x.id}}">Próximos</a>
+    </p>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Login</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="x in UsersData">
+                    <td>{{ x.id }}</td>
+                    <td>{{ x.login }}</td>
+                    <td><a href="#/github.userDetail/{{ x.login }}">Detalhes</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p>
+        <a ng-repeat="x in [UsersData[UsersData.length-1]] track by $index" href="#/github.users/Next/{{x.id}}">Próximos</a>
+    </p>
+</div>

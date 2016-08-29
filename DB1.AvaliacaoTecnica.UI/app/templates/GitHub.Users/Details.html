@@ -1,0 +1,25 @@
+﻿<div class="page-header">
+    <br />
+    <h1>Detalhes do Usuário</h1>
+    <div ng-show="loading" class="loading">Carregando...</div>
+    <div ng-show="detailNotFound" class="detailNotFound">Nenhum Detalhe foi encontrado</div>
+    <div class="form-group">
+        <label for="id">Id:</label>
+        <input type="text" class="form-control" id="id" disabled value="{{id}}"/>
+    </div>
+    <div class="form-group">
+        <label for="login">Login:</label>
+        <input type="text" class="form-control" id="login" disabled value="{{login}}"/>
+    </div>
+    <div class="form-group">
+        <label for="url">Url:</label>
+        <input type="text" class="form-control" id="url" disabled value="{{html_url}}" />
+    </div>
+    <div class="form-group">
+        <label for="dataCad">Data de Cadastro:</label>
+        <input type="text" class="form-control" id="dataCad" disabled value="{{ created_at | date: 'dd/MM/yyyy' }}" />
+    </div>
+    <p>
+        <button onclick="goBack()" class="glyphicon glyphicon-arrow-left btn-lg"> Voltar</button>
+    </p>
+</div>
