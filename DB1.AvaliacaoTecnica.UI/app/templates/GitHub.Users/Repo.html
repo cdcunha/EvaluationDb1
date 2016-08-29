@@ -1,0 +1,27 @@
+﻿<div class="page-header">
+    <br />
+    <h1>Usuários do GitHub</h1>
+    <div ng-show="loading">Carregando...</div>
+    <div ng-show="RepoNotFound">Nenhum Repositório foi encontrado</div>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Url</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="x in RepoData">
+                    <td>{{ x.id }}</td>
+                    <td>{{ x.name }}</td>
+                    <td>{{ x.html_url }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p>
+        <button onclick="goBack()" class="glyphicon glyphicon-arrow-left btn-lg"> Voltar</button>
+    </p>
+</div>

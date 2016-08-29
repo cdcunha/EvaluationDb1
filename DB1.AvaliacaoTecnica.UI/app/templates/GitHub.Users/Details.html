@@ -3,6 +3,9 @@
     <h1>Detalhes do Usuário</h1>
     <div ng-show="loading" class="loading">Carregando...</div>
     <div ng-show="detailNotFound" class="detailNotFound">Nenhum Detalhe foi encontrado</div>
+    <p>
+        <a href="#/github/users/repo/{{login}}">Listar repositórios</a>
+    </p>
     <div class="form-group">
         <label for="id">Id:</label>
         <input type="text" class="form-control" id="id" disabled value="{{id}}"/>
@@ -19,6 +22,9 @@
         <label for="dataCad">Data de Cadastro:</label>
         <input type="text" class="form-control" id="dataCad" disabled value="{{ created_at | date: 'dd/MM/yyyy' }}" />
     </div>
+    <p>
+        <a href="#/github/users/repo/{{login}}">Listar repositórios</a>
+    </p>
     <p>
         <button onclick="goBack()" class="glyphicon glyphicon-arrow-left btn-lg"> Voltar</button>
     </p>

@@ -1,11 +1,11 @@
 ﻿<div class="page-header">
     <br/>
     <h1>Usuários do GitHub</h1>
-    <div ng-show="loading" class="loading">Carregando...</div>
-    <div ng-show="userNotFound" class="userNotFound">Nenhum Usuário foi encontrado</div>
-    <hidden ng-repeat="x in UsersData" ng-class="{last: $last}" value={{x.login}} id="LastLogin"/>
+    <div ng-show="loading">Carregando...</div>
+    <div ng-show="userNotFound">Nenhum Usuário foi encontrado</div>
     <p>
-        <a ng-repeat="x in [UsersData[UsersData.length-1]] track by $index" href="#/github.users/Next/{{x.id}}">Próximos</a>
+        <a href="#/github/users/0">Primeiro</a>
+        <a ng-repeat="x in [UsersData[UsersData.length-1]] track by $index" href="#/github/users/{{x.id}}">Próximos</a>
     </p>
     <div class="table-responsive">
         <table class="table">
@@ -20,12 +20,12 @@
                 <tr ng-repeat="x in UsersData">
                     <td>{{ x.id }}</td>
                     <td>{{ x.login }}</td>
-                    <td><a href="#/github.userDetail/{{ x.login }}">Detalhes</a></td>
+                    <td><a href="#/github/user/detail/{{ x.login }}">Detalhes</a></td>
                 </tr>
             </tbody>
         </table>
     </div>
     <p>
-        <a ng-repeat="x in [UsersData[UsersData.length-1]] track by $index" href="#/github.users/Next/{{x.id}}">Próximos</a>
+        <a ng-repeat="x in [UsersData[UsersData.length-1]] track by $index" href="#/github/users/{{x.id}}">Próximos</a>
     </p>
 </div>
