@@ -4,9 +4,9 @@
     <div ng-show="loading">Carregando...</div>
     <div ng-show="userNotFound">Nenhum Usuário foi encontrado</div>
     <p ng-repeat="x in [UsersData[UsersData.length-1]] track by $index">
-        <a href="#/github/users/0">Primeiro</a>
-		<a href="#/github/users/{{x.id - 82}}">Anteriores</a>
-        <a href="#/github/users/{{x.id}}">Próximos</a>
+        <a class="btn btn-primary" href="#/github/users/0">Primeiro</a>
+		<a class="btn btn-primary" href="#/github/users/{{x.id - 82}}">Anteriores</a>
+        <a class="btn btn-primary" href="#/github/users/{{x.id}}">Próximos</a>
     </p>
     <div class="table-responsive">
         <table class="table">
@@ -21,12 +21,14 @@
                 <tr ng-repeat="x in UsersData">
                     <td>{{ x.id }}</td>
                     <td>{{ x.login }}</td>
-                    <td><a href="#/github/user/detail/{{ x.login }}">Detalhes</a></td>
+                    <td><a class="btn btn-primary btn-xs" href="#/github/user/detail/{{ x.login }}">Detalhes</a></td>
                 </tr>
             </tbody>
         </table>
     </div>
-    <p>
-        <a ng-repeat="x in [UsersData[UsersData.length-1]] track by $index" href="#/github/users/{{x.id}}">Próximos</a>
+    <p ng-repeat="x in [UsersData[UsersData.length-1]] track by $index">
+        <a class="btn btn-primary" href="#/github/users/0">Primeiro</a>
+		<a class="btn btn-primary" href="#/github/users/{{x.id - 82}}">Anteriores</a>
+        <a class="btn btn-primary" href="#/github/users/{{x.id}}">Próximos</a>
     </p>
 </div>
