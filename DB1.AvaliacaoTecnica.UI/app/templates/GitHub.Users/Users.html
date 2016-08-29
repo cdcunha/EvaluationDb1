@@ -3,9 +3,10 @@
     <h1>Usuários do GitHub</h1>
     <div ng-show="loading">Carregando...</div>
     <div ng-show="userNotFound">Nenhum Usuário foi encontrado</div>
-    <p>
+    <p ng-repeat="x in [UsersData[UsersData.length-1]] track by $index">
         <a href="#/github/users/0">Primeiro</a>
-        <a ng-repeat="x in [UsersData[UsersData.length-1]] track by $index" href="#/github/users/{{x.id}}">Próximos</a>
+		<a href="#/github/users/{{x.id - 82}}">Anteriores</a>
+        <a href="#/github/users/{{x.id}}">Próximos</a>
     </p>
     <div class="table-responsive">
         <table class="table">
