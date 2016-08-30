@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace DB1.AvaliacaoTecnica.Domain.Enums
 {
-    public enum EVagaSituacao
+    public enum EVacancyStatus
     {
-        Aberta = 0,
-        Fechada = 2,
-        Cancelada = 9
+        Opened = 0,
+        Closed = 2,
+        Suspensed = 3,
+        Canceled = 9
     }
 }
