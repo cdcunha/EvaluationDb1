@@ -210,7 +210,9 @@ UpgradeLog*.htm
 
 # SQL Server files
 *.mdf
+!DB1.AvaliacaoTecnica.mdf
 *.ldf
+!DB1.AvaliacaoTecnica.ldf
 
 # Business Intelligence projects
 *.rdl.data
