@@ -9,6 +9,7 @@ using DB1.AvaliacaoTecnica.Domain.Services;
 using DB1.AvaliacaoTecnica.Domain.Models;
 using DB1.AvaliacaoTecnica.Domain.Commands.TechnologyCommands;
 using DB1.AvaliacaoTecnica.Domain.Contracts;
+using DB1.AvaliacaoTecnica.SharedKernel.Helpers;
 
 namespace DB1.AvaliacaoTecnica.ApplicationService
 {
@@ -114,6 +115,25 @@ namespace DB1.AvaliacaoTecnica.ApplicationService
             _vacancyRepository.Update(vacancy);
 
             Commit();
+        }
+
+        public new List<Finalized> Finalize(int id)
+        {
+            Vacancy vacancy = _vacancyRepository.GetHeader(id);
+
+            if (vacancy.CanFinalize())
+            {
+                List<Finalized> result = vacancy.Finalize();
+                _vacancyRepository.Update(vacancy);
+
+                Commit();
+
+                return result;
+            }
+            else
+            {
+                return new List<Finalized>()
+            }
         }
     }
 }

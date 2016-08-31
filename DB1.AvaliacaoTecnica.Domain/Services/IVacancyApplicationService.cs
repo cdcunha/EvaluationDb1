@@ -1,5 +1,6 @@
 ﻿using DB1.AvaliacaoTecnica.Domain.Commands.TechnologyCommands;
 using DB1.AvaliacaoTecnica.Domain.Models;
+using DB1.AvaliacaoTecnica.SharedKernel.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,5 +20,6 @@ namespace DB1.AvaliacaoTecnica.Domain.Services
         Vacancy Delete(int id);
         void Cancel(int id);
         void Suspend(int id);
+        List<Finalized> Finalize(int id);
     }
 }

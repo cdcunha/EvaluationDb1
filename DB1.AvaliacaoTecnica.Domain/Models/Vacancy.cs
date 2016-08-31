@@ -105,7 +105,7 @@ namespace DB1.AvaliacaoTecnica.Domain.Models
         /// 2) Se foi atribuído um nível de conhecimento para cada tecnologia relaciondo à cada candidato da vaga</remarks>
         /// <returns>Se retorno for verdadeiro, a triagem poderá ser finalizada. Ver método Finalize()</returns>
         /// <seealso cref="Finalize"/>
-        private bool CanFinalize()
+        public bool CanFinalize()
         {
             return this.FinalizeVacancyScopeIsValid();
         }
@@ -134,19 +134,12 @@ namespace DB1.AvaliacaoTecnica.Domain.Models
         /// <seealso cref="CanFinalize">O método CanFinalize será chamado para verificar se a triagem pode ser finalizada</seealso>/>
         public List<Finalized> Finalize()
         {
-            if (CanFinalize())
-            {
-                SetWeightToCandidateTechnologies();
+            SetWeightToCandidateTechnologies();
 
-                this.Status = EVacancyStatus.Finalized;
+            this.Status = EVacancyStatus.Finalized;
 
-                return _candidates.OrderBy(x => x.Name)
+            return _candidates.OrderBy(x => x.Name)
                     .Select(x => new Finalized { Name = x.Name, Pontuation = x.Pontuation }).ToList();
-            }
-            else
-            {
-                return new List<Finalized>();
-            }
         }
         #endregion
     }
