@@ -14,7 +14,7 @@ namespace DB1.AvaliacaoTecnica.Domain.Models
         {
             this.CandidateId = candidateId;
             this.TechnologyId = technologyId;
-            this.KnowledgeLevel = KnowledgeLevel;
+            this.KnowledgeLevel = knowledgeLevel;
         }
 
         public int Id { get; private set; }

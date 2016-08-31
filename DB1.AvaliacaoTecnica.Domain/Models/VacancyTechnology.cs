@@ -9,8 +9,10 @@ namespace DB1.AvaliacaoTecnica.Domain.Models
     {
         public VacancyTechnology(){}
 
-        public VacancyTechnology(int weight)
+        public VacancyTechnology(int vacancyId, int technologyId, int weight)
         {
+            this.VacancyId = vacancyId;
+            this.TechnologyId = technologyId;
             SetWeight(weight);
         }
 

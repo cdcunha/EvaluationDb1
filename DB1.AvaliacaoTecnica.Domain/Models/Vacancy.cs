@@ -13,10 +13,11 @@ namespace DB1.AvaliacaoTecnica.Domain.Models
         //Contrutor para ser usado pelo EntityFramework
         public Vacancy() { }
 
-        public Vacancy(string description, IList<IVacancyTechnology> vacancyTechnologies)
+        public Vacancy(string description)
         {
             this.Description = description;
-            this._vacancyTechnologies = vacancyTechnologies;
+            this._vacancyTechnologies = new List<IVacancyTechnology>();
+            this._candidates = new List<ICandidate>();
             this.Status = EVacancyStatus.Opened;
         }
 
@@ -30,13 +31,14 @@ namespace DB1.AvaliacaoTecnica.Domain.Models
             get { return _vacancyTechnologies; }
             private set { _vacancyTechnologies = new List<IVacancyTechnology>(value); }
         }
-
+        
         private IList<ICandidate> _candidates;
         public ICollection<ICandidate> Candidates
         {
             get { return _candidates; }
             private set { _candidates = new List<ICandidate>(value); }
         }
+        
         public EVacancyStatus Status { get; private set; }
         #endregion
 
@@ -58,7 +60,7 @@ namespace DB1.AvaliacaoTecnica.Domain.Models
         public void AddCandidate(ICandidate candidate)
         {
             if (candidate.CanAdd())
-                _candidates.Add(candidate);
+                this.Candidates.Add(candidate);
         }
 
         /// <summary>
@@ -81,7 +83,7 @@ namespace DB1.AvaliacaoTecnica.Domain.Models
         {
             return this.RegisterVacancyScopeIsValid();
         }
-
+        
         /// <summary>
         /// Verifica se a triagem de candidatos pode ser finalizada.
         /// </summary>
@@ -93,6 +95,21 @@ namespace DB1.AvaliacaoTecnica.Domain.Models
         private bool CanFinalize()
         {
             return this.FinalizeVacancyScopeIsValid();
+        }
+        
+        private void SetWeightToCandidateTechnologies()
+        {
+            foreach (IVacancyTechnology vacancyTech in this._vacancyTechnologies)
+            {   
+                foreach (ICandidate candidate in this._candidates)
+                {
+                    foreach (ICandidateTechnology candidateTech in candidate.CandidateTechnologies
+                        .Where(y => y.TechnologyId == vacancyTech.TechnologyId))
+                    {
+                        candidateTech.SetWeight(vacancyTech.Weight);
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -106,6 +123,8 @@ namespace DB1.AvaliacaoTecnica.Domain.Models
         {
             if (CanFinalize())
             {
+                SetWeightToCandidateTechnologies();
+
                 this.Status = EVacancyStatus.Finalized;
 
                 return _candidates.OrderBy(x => x.Name)

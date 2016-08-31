@@ -12,7 +12,7 @@ namespace DB1.AvaliacaoTecnica.Domain.Scopes
             return AssertionConcern.IsSatisfiedBy
             (
                 AssertionConcern.AssertNotNullOrEmpty(vacancy.Description, "A Descrição da vaga é obrigatória"),
-                AssertionConcern.AssertNotNull(vacancy.VacancyTechnologies, "A escolha de ao menos uma tecnologia é obrigatória")
+                AssertionConcern.AssertNotNull(vacancy.VacancyTechnologies.Count, "A escolha de ao menos uma tecnologia é obrigatória")
             );
         }
 

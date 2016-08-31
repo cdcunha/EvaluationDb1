@@ -10,11 +10,11 @@ namespace DB1.AvaliacaoTecnica.Domain.Models
         //Contrutor para ser usado pelo EntityFramework
         public Candidate(){}
 
-        public Candidate(int vacancyId, string name, IList<ICandidateTechnology> candidateTechnologies)
+        public Candidate(int vacancyId, string name)
         {
             this.VacancyId = vacancyId;
             this.Name = name;
-            this.CandidateTechnologies = candidateTechnologies;
+            this._candidateTechnologies = new List<ICandidateTechnology>();
         }
 
         #region Propriedades
@@ -28,7 +28,7 @@ namespace DB1.AvaliacaoTecnica.Domain.Models
             get { return _candidateTechnologies; }
             private set { _candidateTechnologies = new List<ICandidateTechnology>(value); }
         }
-
+        
         #region Calcula Pontuação
         public int Pontuation
         {
@@ -51,7 +51,7 @@ namespace DB1.AvaliacaoTecnica.Domain.Models
         public void AddCandidateTechnology(ICandidateTechnology candidateTechnology)
         {
             if (candidateTechnology.CanAdd())
-                _candidateTechnologies.Add(candidateTechnology);
+                this.CandidateTechnologies.Add(candidateTechnology);
         }
 
         public bool CanAdd()
