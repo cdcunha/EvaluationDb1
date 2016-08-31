@@ -10,11 +10,10 @@ namespace DB1.AvaliacaoTecnica.Domain.Models
 
         public Technology(string description)
         {
-            this.Id = Guid.NewGuid();
             this.Description = description;
         }
 
-        public Guid Id { get; private set; }
+        public int Id { get; private set; }
         public string Description { get; private set; }
     }
 }

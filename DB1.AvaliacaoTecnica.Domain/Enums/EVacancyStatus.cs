@@ -9,7 +9,7 @@ namespace DB1.AvaliacaoTecnica.Domain.Enums
     public enum EVacancyStatus
     {
         Opened = 0,
-        Closed = 2,
+        Finalized = 2,
         Suspensed = 3,
         Canceled = 9
     }

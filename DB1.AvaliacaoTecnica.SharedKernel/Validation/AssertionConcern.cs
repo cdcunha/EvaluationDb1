@@ -47,8 +47,13 @@ namespace DB1.AvaliacaoTecnica.SharedKernel.Validation
 
         public static DomainNotification AssertNotNull(object object1, string message)
         {
-
             return (object1 == null) ?
+                new DomainNotification("AssertArgumentNotNull", message) : null;
+        }
+
+        public static DomainNotification AssertNotNullOrEmpty(string text, string message)
+        {
+            return (string.IsNullOrEmpty(text)) ?
                 new DomainNotification("AssertArgumentNotNull", message) : null;
         }
 

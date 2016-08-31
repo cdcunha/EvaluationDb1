@@ -5,8 +5,8 @@ namespace DB1.AvaliacaoTecnica.Domain.Contracts
 {
     public interface ICandidate
     {
-        Guid Id { get; }
-        Guid VacancyId { get; }
+        int Id { get; }
+        int VacancyId { get; }
         string Name { get; }
         int Pontuation { get; }
         ICollection<ICandidateTechnology> CandidateTechnologies { get; }
@@ -14,5 +14,6 @@ namespace DB1.AvaliacaoTecnica.Domain.Contracts
         void AddCandidateTechnology(ICandidateTechnology candidateTechnology);
 
         bool CanAdd();
+        int GetKnowledgeLevelSeted();
     }
 }

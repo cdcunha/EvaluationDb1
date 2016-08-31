@@ -6,8 +6,8 @@ namespace DB1.AvaliacaoTecnica.Domain.Contracts.Repositories
 {
     public interface ICandidateTechnologyRepository
     {
-        List<CandidateTechnology> GetByCandidate(Guid candidateId);
-        CandidateTechnology Get(Guid id);
+        List<CandidateTechnology> GetByCandidate(int candidateId);
+        CandidateTechnology Get(int id);
         void Create(CandidateTechnology candidateTechnology);
         void Update(CandidateTechnology candidateTechnology);
         void Delete(CandidateTechnology candidateTechnology);

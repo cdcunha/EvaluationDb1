@@ -11,14 +11,13 @@ namespace DB1.AvaliacaoTecnica.Domain.Models
 
         public VacancyTechnology(int weight)
         {
-            this.Id = Guid.NewGuid();
             SetWeight(weight);
         }
 
         #region Properties
-        public Guid Id { get; private set; }
-        public Guid VacancyId { get; private set; }
-        public Guid TechnologyId { get; private set; }
+        public int Id { get; private set; }
+        public int VacancyId { get; private set; }
+        public int TechnologyId { get; private set; }
         [Range(0, 10)]
         public int Weight { get; private set; }
         #endregion

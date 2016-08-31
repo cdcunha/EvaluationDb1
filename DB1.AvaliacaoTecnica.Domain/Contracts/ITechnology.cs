@@ -1,10 +1,8 @@
-﻿using System;
-
-namespace DB1.AvaliacaoTecnica.Domain.Contracts
+﻿namespace DB1.AvaliacaoTecnica.Domain.Contracts
 {
     public interface ITechnology
     {
-        Guid Id { get; }
+        int Id { get; }
         string Description { get; }
     }
 }

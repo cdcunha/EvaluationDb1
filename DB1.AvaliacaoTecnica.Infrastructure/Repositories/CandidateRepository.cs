@@ -27,12 +27,12 @@ namespace DB1.AvaliacaoTecnica.Infrastructure.Repositories
             this._context.Candidates.Remove(candidate);
         }
 
-        public Candidate Get(Guid id)
+        public Candidate Get(int id)
         {
             return this._context.Candidates.Find(id);
         }
 
-        public List<Candidate> GetByVancancy(Guid vacancyId)
+        public List<Candidate> GetByVancancy(int vacancyId)
         {
             return _context.Candidates
                 .Where(x => x.VacancyId == vacancyId)

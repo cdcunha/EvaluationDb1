@@ -35,7 +35,7 @@ namespace DB1.AvaliacaoTecnica.Infrastructure.Repositories
                 .OrderBy(x => x.Description).ToList();
         }
 
-        public Vacancy Get(Guid id)
+        public Vacancy Get(int id)
         {
             return this._context.Vacancies.Find(id);
         }

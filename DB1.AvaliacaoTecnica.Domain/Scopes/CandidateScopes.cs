@@ -9,8 +9,9 @@ namespace DB1.AvaliacaoTecnica.Domain.Scopes
         {
             return AssertionConcern.IsSatisfiedBy
             (
-                AssertionConcern.AssertNotNull(candidate.VacancyId, "A Vaga do candidato é obrigatória"),
-                AssertionConcern.AssertNotNull(candidate.Name, "O Nome do candidato é obrigatório")
+                AssertionConcern.AssertNotNull(candidate.VacancyId, "É necessario que o candidato esteja associado à uma vaga"),
+                AssertionConcern.AssertNotNullOrEmpty(candidate.Name, "O Nome do candidato é obrigatório"),
+                AssertionConcern.AssertIsGreaterThan(candidate.CandidateTechnologies.Count, 0, "É necessario que o candidato esteja associado ao menos a uma tecnologia")
             );
         }
     }

@@ -7,7 +7,7 @@ namespace DB1.AvaliacaoTecnica.Domain.Contracts.Repositories
     public interface ITechnologyRepository
     {
         List<Technology> Get();
-        Technology Get(Guid id);
+        Technology Get(int id);
         void Create(Technology technology);
         void Update(Technology technology);
         void Delete(Technology technology);

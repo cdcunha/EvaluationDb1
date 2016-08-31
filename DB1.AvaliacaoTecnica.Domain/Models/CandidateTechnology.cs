@@ -10,17 +10,16 @@ namespace DB1.AvaliacaoTecnica.Domain.Models
         //Contrutor para ser usado pelo EntityFramework
         public CandidateTechnology() { }
 
-        public CandidateTechnology(Guid candidateId, Guid technologyId, int knowledgeLevel)
+        public CandidateTechnology(int candidateId, int technologyId, int knowledgeLevel)
         {
-            this.Id = Guid.NewGuid();
             this.CandidateId = candidateId;
             this.TechnologyId = technologyId;
             this.KnowledgeLevel = KnowledgeLevel;
         }
 
-        public Guid Id { get; private set; }
-        public Guid CandidateId { get; private set; }
-        public Guid TechnologyId { get; private set; }
+        public int Id { get; private set; }
+        public int CandidateId { get; private set; }
+        public int TechnologyId { get; private set; }
 
         [Range(0, 10)]
         public int KnowledgeLevel { get; private set; }

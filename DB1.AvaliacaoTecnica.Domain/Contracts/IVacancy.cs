@@ -1,12 +1,12 @@
 ﻿using DB1.AvaliacaoTecnica.Domain.Enums;
-using System;
+using DB1.AvaliacaoTecnica.SharedKernel.Helpers;
 using System.Collections.Generic;
 
 namespace DB1.AvaliacaoTecnica.Domain.Contracts
 {
     public interface IVacancy
     {
-        Guid Id { get; }
+        int Id { get; }
         string Description { get; }
         ICollection<IVacancyTechnology> VacancyTechnologies { get; }
         ICollection<ICandidate> Candidates { get; }
@@ -14,5 +14,8 @@ namespace DB1.AvaliacaoTecnica.Domain.Contracts
 
         void AddTechnology(IVacancyTechnology vacancyTecnology);
         void AddCandidate(ICandidate candidate);
+
+        bool CanAdd();
+        List<Finalized> Finalize();
     }
 }

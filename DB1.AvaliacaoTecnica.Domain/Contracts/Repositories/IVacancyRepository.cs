@@ -8,7 +8,7 @@ namespace DB1.AvaliacaoTecnica.Domain.Contracts.Repositories
     {
         List<Vacancy> Get();
         List<Vacancy> Get(string description);        
-        Vacancy Get(Guid id);
+        Vacancy Get(int id);
         void Create(Vacancy vacancy);
         void Update(Vacancy vacancy);
         void Delete(Vacancy vacancy);

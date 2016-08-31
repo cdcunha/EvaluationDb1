@@ -1,7 +1,7 @@
 ﻿using DB1.AvaliacaoTecnica.Domain.Contracts;
 using DB1.AvaliacaoTecnica.Domain.Scopes;
-using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DB1.AvaliacaoTecnica.Domain.Models
 {
@@ -10,17 +10,16 @@ namespace DB1.AvaliacaoTecnica.Domain.Models
         //Contrutor para ser usado pelo EntityFramework
         public Candidate(){}
 
-        public Candidate(Guid vacancyId, string name, IList<ICandidateTechnology> candidateTechnologies)
+        public Candidate(int vacancyId, string name, IList<ICandidateTechnology> candidateTechnologies)
         {
-            this.Id = Guid.NewGuid();
             this.VacancyId = vacancyId;
             this.Name = name;
             this.CandidateTechnologies = candidateTechnologies;
         }
 
         #region Propriedades
-        public Guid Id { get; private set; }
-        public Guid VacancyId { get; private set; }
+        public int Id { get; private set; }
+        public int VacancyId { get; private set; }
         public string Name { get; private set; }
 
         private IList<ICandidateTechnology> _candidateTechnologies;
@@ -58,6 +57,11 @@ namespace DB1.AvaliacaoTecnica.Domain.Models
         public bool CanAdd()
         {
             return this.RegisterCandidateScopeIsValid();
+        }
+
+        public int GetKnowledgeLevelSeted()
+        {
+            return _candidateTechnologies.Where(x => x.KnowledgeLevel > 0).Count();
         }
         #endregion
     }

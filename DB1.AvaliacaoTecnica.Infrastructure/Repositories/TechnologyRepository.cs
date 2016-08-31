@@ -35,7 +35,7 @@ namespace DB1.AvaliacaoTecnica.Infrastructure.Repositories
                 .OrderBy(x => x.Description).ToList();
         }
 
-        public Technology Get(Guid id)
+        public Technology Get(int id)
         {
             return this._context.Technologies.Find(id);
         }

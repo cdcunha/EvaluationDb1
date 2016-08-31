@@ -9,7 +9,7 @@ namespace DB1.AvaliacaoTecnica.Domain.Scopes
         {
             return AssertionConcern.IsSatisfiedBy
             (
-                AssertionConcern.AssertNotNull(technology.Description, "A Descrição da Tecnologia é obrigatória")
+                AssertionConcern.AssertNotNullOrEmpty(technology.Description, "A Descrição da Tecnologia é obrigatória")
             );
         }
     }
