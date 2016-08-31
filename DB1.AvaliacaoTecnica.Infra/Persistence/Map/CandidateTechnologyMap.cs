@@ -1,7 +1,7 @@
 ﻿using DB1.AvaliacaoTecnica.Domain.Models;
 using System.Data.Entity.ModelConfiguration;
 
-namespace DB1.AvaliacaoTecnica.Infrastructure.Persistence.Data.Map
+namespace DB1.AvaliacaoTecnica.Infrastructure.Persistence.Map
 {
     public class CandidateTechnologyMap : EntityTypeConfiguration<CandidateTechnology>
     {

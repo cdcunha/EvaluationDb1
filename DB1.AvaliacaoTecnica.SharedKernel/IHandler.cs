@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace DB1.AvaliacaoTecnica.SharedKernel
 {
-    interface IHandler<T> : IDisposable where T : IDomainEvent
+    public interface IHandler<T> : IDisposable where T : IDomainEvent
     {
         void Handle(T args);
         IEnumerable<T> Notify();

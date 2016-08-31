@@ -4,5 +4,7 @@
     {
         int Id { get; }
         string Description { get; }
+
+        bool CanAdd();
     }
 }

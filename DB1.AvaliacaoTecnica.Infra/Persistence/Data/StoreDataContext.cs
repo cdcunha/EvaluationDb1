@@ -1,10 +1,8 @@
 namespace DB1.AvaliacaoTecnica.Infrastructure.Data
 {
     using Domain.Models;
-    using Persistence.Data.Map;
-    using System;
+    using Persistence.Map;
     using System.Data.Entity;
-    using System.Linq;
 
     public class StoreDataContext : DbContext
     {

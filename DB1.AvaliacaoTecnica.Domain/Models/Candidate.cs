@@ -10,6 +10,12 @@ namespace DB1.AvaliacaoTecnica.Domain.Models
         //Contrutor para ser usado pelo EntityFramework
         public Candidate(){}
 
+        public Candidate(string name, List<ICandidateTechnology> candidateTechnologies)
+        {
+            this.Name = name;
+            this.CandidateTechnologies = candidateTechnologies;
+        }
+
         public Candidate(int vacancyId, string name)
         {
             this.VacancyId = vacancyId;

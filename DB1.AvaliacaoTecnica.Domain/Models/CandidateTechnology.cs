@@ -10,6 +10,11 @@ namespace DB1.AvaliacaoTecnica.Domain.Models
         //Contrutor para ser usado pelo EntityFramework
         public CandidateTechnology() { }
 
+        public CandidateTechnology(int knowledgeLevel)
+        {
+            this.KnowledgeLevel = knowledgeLevel;
+        }
+
         public CandidateTechnology(int candidateId, int technologyId, int knowledgeLevel)
         {
             this.CandidateId = candidateId;

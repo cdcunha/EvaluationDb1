@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentation", "1 - Presentation", "{D343A859-1AEF-4A00-9DED-CABEC1C906E4}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - UI", "0 - UI", "{D343A859-1AEF-4A00-9DED-CABEC1C906E4}"
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "DB1.AvaliacaoTecnica.UI", "DB1.AvaliacaoTecnica.UI\", "{19DD596A-16A7-4FEB-B4C1-258E51415782}"
 	ProjectSection(WebsiteProperties) = preProject
@@ -38,7 +38,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - I
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB1.AvaliacaoTecnica.Domain", "DB1.AvaliacaoTecnica.Domain\DB1.AvaliacaoTecnica.Domain.csproj", "{18EC9A6D-AFFC-4002-A78D-ED04A777F740}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB1.AvaliacaoTecnica.Infrastructure", "DB1.AvaliacaoTecnica.Infrastructure\DB1.AvaliacaoTecnica.Infrastructure.csproj", "{741BFD7E-401A-4966-A84B-1B6D570B799B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB1.AvaliacaoTecnica.Infra", "DB1.AvaliacaoTecnica.Infra\DB1.AvaliacaoTecnica.Infra.csproj", "{741BFD7E-401A-4966-A84B-1B6D570B799B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB1.AvaliacaoTecnica.SharedKernel", "DB1.AvaliacaoTecnica.SharedKernel\DB1.AvaliacaoTecnica.SharedKernel.csproj", "{AE2E0FA0-9546-4D66-9CE1-D7090D4E244A}"
 EndProject
@@ -47,6 +47,14 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Tests", "5 - Tests", "{23DD67E2-641A-4444-83EF-C48DEB5959F3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB1.AvaliacaoTecnica.Tests.Domain", "DB1.AvaliacaoTecnica.Tests.Domain\DB1.AvaliacaoTecnica.Tests.Domain.csproj", "{FDDC717C-C435-4AED-980F-EA693DEDBD6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB1.AvaliacaoTecnica.CrossCutting", "DB1.AvaliacaoTecnica.CrossCutting\DB1.AvaliacaoTecnica.CrossCutting.csproj", "{7943ED4A-18E9-443E-9D96-C3012C4217FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB1.AvaliacaoTecnica.ApplicationService", "DB1.AvaliacaoTecnica.ApplicationService\DB1.AvaliacaoTecnica.ApplicationService.csproj", "{FEAFA1A9-749A-47FC-8941-41D4F64E204D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentation", "1 - Presentation", "{1D5E1001-1DB2-4DC9-8BD9-765E97277228}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB1.AvaliacaoTecnica.Api", "DB1.AvaliacaoTecnica.Api\DB1.AvaliacaoTecnica.Api.csproj", "{56DFB7E9-89DA-41B5-8333-00434AF2750F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -82,6 +90,18 @@ Global
 		{FDDC717C-C435-4AED-980F-EA693DEDBD6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FDDC717C-C435-4AED-980F-EA693DEDBD6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FDDC717C-C435-4AED-980F-EA693DEDBD6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7943ED4A-18E9-443E-9D96-C3012C4217FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7943ED4A-18E9-443E-9D96-C3012C4217FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7943ED4A-18E9-443E-9D96-C3012C4217FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7943ED4A-18E9-443E-9D96-C3012C4217FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEAFA1A9-749A-47FC-8941-41D4F64E204D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEAFA1A9-749A-47FC-8941-41D4F64E204D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEAFA1A9-749A-47FC-8941-41D4F64E204D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEAFA1A9-749A-47FC-8941-41D4F64E204D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56DFB7E9-89DA-41B5-8333-00434AF2750F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56DFB7E9-89DA-41B5-8333-00434AF2750F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56DFB7E9-89DA-41B5-8333-00434AF2750F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56DFB7E9-89DA-41B5-8333-00434AF2750F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -94,5 +114,8 @@ Global
 		{741BFD7E-401A-4966-A84B-1B6D570B799B} = {4CE4F29E-D6B4-4297-9F92-DD1B7146F765}
 		{AE2E0FA0-9546-4D66-9CE1-D7090D4E244A} = {5114C3EE-7EC1-45E4-9FFC-AAEE77E8F8C1}
 		{FDDC717C-C435-4AED-980F-EA693DEDBD6E} = {23DD67E2-641A-4444-83EF-C48DEB5959F3}
+		{7943ED4A-18E9-443E-9D96-C3012C4217FB} = {4CE4F29E-D6B4-4297-9F92-DD1B7146F765}
+		{FEAFA1A9-749A-47FC-8941-41D4F64E204D} = {4F41FBE9-903A-419B-A6C1-F2C4C89E105D}
+		{56DFB7E9-89DA-41B5-8333-00434AF2750F} = {1D5E1001-1DB2-4DC9-8BD9-765E97277228}
 	EndGlobalSection
 EndGlobal

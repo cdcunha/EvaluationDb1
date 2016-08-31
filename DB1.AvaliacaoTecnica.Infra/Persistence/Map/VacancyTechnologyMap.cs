@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DB1.AvaliacaoTecnica.Infrastructure.Persistence.Data.Map
+namespace DB1.AvaliacaoTecnica.Infrastructure.Persistence.Map
 {
     public class VacancyTechnologyMap : EntityTypeConfiguration<VacancyTechnology>
     {

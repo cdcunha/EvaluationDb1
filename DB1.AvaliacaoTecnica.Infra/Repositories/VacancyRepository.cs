@@ -29,13 +29,21 @@ namespace DB1.AvaliacaoTecnica.Infrastructure.Repositories
             this._context.Vacancies.Remove(vacancy);
         }
 
+        public Vacancy GetDetails(int id)
+        {
+            return _context.Vacancies
+                .Include(x => x.Candidates)
+                .Include(x => x.VacancyTechnologies)
+                .Where(x => x.Id == id)
+                .FirstOrDefault();
+        }
         public List<Vacancy> Get()
         {
             return this._context.Vacancies
                 .OrderBy(x => x.Description).ToList();
         }
 
-        public Vacancy Get(int id)
+        public Vacancy GetHeader(int id)
         {
             return this._context.Vacancies.Find(id);
         }

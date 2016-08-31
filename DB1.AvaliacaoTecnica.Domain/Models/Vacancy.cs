@@ -9,9 +9,22 @@ using System.Linq;
 namespace DB1.AvaliacaoTecnica.Domain.Models
 {
     public class Vacancy : IVacancy
-    {
+    {   
         //Contrutor para ser usado pelo EntityFramework
         public Vacancy() { }
+
+        public Vacancy(string description, IList<IVacancyTechnology> vacancyTechnologies, IList<ICandidate> candidates)
+        {
+            this.Description = description;
+
+            this._vacancyTechnologies = new List<IVacancyTechnology>();
+            vacancyTechnologies.ToList().ForEach(x => AddTechnology(x));
+
+            this._candidates = new List<ICandidate>();
+            candidates.ToList().ForEach(x => AddCandidate(x));
+            
+            this.Status = EVacancyStatus.Opened;
+        }
 
         public Vacancy(string description)
         {
