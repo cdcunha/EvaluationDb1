@@ -1,17 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FEAFA1A9-749A-47FC-8941-41D4F64E204D}</ProjectGuid>
+    <ProjectGuid>{F3634607-54EC-452E-9740-EC21E2B3AA08}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DB1.AvaliacaoTecnica.ApplicationService</RootNamespace>
-    <AssemblyName>DB1.AvaliacaoTecnica.ApplicationService</AssemblyName>
+    <RootNamespace>DB1.AvaliacaoTecnica.Api.Tests</RootNamespace>
+    <AssemblyName>DB1.AvaliacaoTecnica.Api.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,35 +32,35 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationService.cs" />
+    <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TechnologyApplicationService.cs" />
-    <Compile Include="VacancyApplicationService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DB1.AvaliacaoTecnica.Domain\DB1.AvaliacaoTecnica.Domain.csproj">
-      <Project>{18EC9A6D-AFFC-4002-A78D-ED04A777F740}</Project>
-      <Name>DB1.AvaliacaoTecnica.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DB1.AvaliacaoTecnica.Infra\DB1.AvaliacaoTecnica.Infra.csproj">
-      <Project>{741BFD7E-401A-4966-A84B-1B6D570B799B}</Project>
-      <Name>DB1.AvaliacaoTecnica.Infra</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DB1.AvaliacaoTecnica.SharedKernel\DB1.AvaliacaoTecnica.SharedKernel.csproj">
-      <Project>{AE2E0FA0-9546-4D66-9CE1-D7090D4E244A}</Project>
-      <Name>DB1.AvaliacaoTecnica.SharedKernel</Name>
+    <ProjectReference Include="..\DB1.AvaliacaoTecnica.Api\DB1.AvaliacaoTecnica.Api.csproj">
+      <Project>{65E275D0-B0BE-46BC-A1C2-54CD00DB23EA}</Project>
+      <Name>DB1.AvaliacaoTecnica.Api</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

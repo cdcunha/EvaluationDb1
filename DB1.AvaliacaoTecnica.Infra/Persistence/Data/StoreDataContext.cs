@@ -13,7 +13,7 @@ namespace DB1.AvaliacaoTecnica.Infrastructure.Data
         // If you wish to target a different database and/or database provider, modify the 'StoreDataContext' 
         // connection string in the application configuration file.
         public StoreDataContext()
-            : base("name=StoreDataContext")
+            : base("StoreConnectionString")
         {
             Configuration.ProxyCreationEnabled = false;
             Configuration.LazyLoadingEnabled = false;

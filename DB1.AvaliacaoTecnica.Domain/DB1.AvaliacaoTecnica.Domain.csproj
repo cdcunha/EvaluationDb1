@@ -41,12 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\TechnologyCommands\CreateCandidateCommand.cs" />
-    <Compile Include="Commands\TechnologyCommands\CreateCandidateTechnologyCommand.cs" />
-    <Compile Include="Commands\TechnologyCommands\CreateVacancyCommand.cs" />
-    <Compile Include="Commands\TechnologyCommands\CreateVacancyTechnologyCommand.cs" />
+    <Compile Include="Commands\VacancyTechnologyCommands\CreateCandidateCommand.cs" />
+    <Compile Include="Commands\VacancyTechnologyCommands\CreateCandidateTechnologyCommand.cs" />
+    <Compile Include="Commands\VacancyTechnologyCommands\CreateVacancyCommand.cs" />
+    <Compile Include="Commands\VacancyTechnologyCommands\CreateVacancyTechnologyCommand.cs" />
     <Compile Include="Commands\TechnologyCommands\EditTechnologyCommand.cs" />
-    <Compile Include="Commands\TechnologyCommands\EditVacancyCommand.cs" />
     <Compile Include="Commands\VacancyTechnologyCommands\EditVacancyCommand.cs" />
     <Compile Include="Contracts\ICandidate.cs" />
     <Compile Include="Contracts\ICandidateTechnology.cs" />

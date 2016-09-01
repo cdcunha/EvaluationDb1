@@ -1,13 +1,9 @@
 ﻿using DB1.AvaliacaoTecnica.Domain.Contracts.Repositories;
 using DB1.AvaliacaoTecnica.Infrastructure.Persistence;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DB1.AvaliacaoTecnica.Domain.Services;
 using DB1.AvaliacaoTecnica.Domain.Models;
-using DB1.AvaliacaoTecnica.Domain.Commands.TechnologyCommands;
+using DB1.AvaliacaoTecnica.Domain.Commands.VacancyTechnologyCommands;
 using DB1.AvaliacaoTecnica.Domain.Contracts;
 using DB1.AvaliacaoTecnica.SharedKernel.Helpers;
 
@@ -117,7 +113,7 @@ namespace DB1.AvaliacaoTecnica.ApplicationService
             Commit();
         }
 
-        public new List<Finalized> Finalize(int id)
+        public List<Finalized> Finalize(int id)
         {
             Vacancy vacancy = _vacancyRepository.GetHeader(id);
 
@@ -132,7 +128,7 @@ namespace DB1.AvaliacaoTecnica.ApplicationService
             }
             else
             {
-                return new List<Finalized>()
+                return new List<Finalized>();
             }
         }
     }

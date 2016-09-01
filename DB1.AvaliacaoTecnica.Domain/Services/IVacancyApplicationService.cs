@@ -1,11 +1,7 @@
-﻿using DB1.AvaliacaoTecnica.Domain.Commands.TechnologyCommands;
+﻿using DB1.AvaliacaoTecnica.Domain.Commands.VacancyTechnologyCommands;
 using DB1.AvaliacaoTecnica.Domain.Models;
 using DB1.AvaliacaoTecnica.SharedKernel.Helpers;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DB1.AvaliacaoTecnica.Domain.Services
 {

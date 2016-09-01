@@ -66,6 +66,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\201609010423543_FirstMigration.cs" />
+    <Compile Include="Migrations\201609010423543_FirstMigration.Designer.cs">
+      <DependentUpon>201609010423543_FirstMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Persistence\Map\CandidateMap.cs" />
     <Compile Include="Persistence\Map\CandidateTechnologyMap.cs" />
     <Compile Include="Persistence\Map\TechnologyMap.cs" />
@@ -78,7 +83,11 @@
     <Compile Include="Repositories\TechnologyRepository.cs" />
     <Compile Include="Repositories\VacancyRepository.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201609010423543_FirstMigration.resx">
+      <DependentUpon>201609010423543_FirstMigration.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
@@ -88,15 +97,6 @@
       <Project>{18EC9A6D-AFFC-4002-A78D-ED04A777F740}</Project>
       <Name>DB1.AvaliacaoTecnica.Domain</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Persistence\Data\DB1.AvaliacaoTecnica.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Persistence\Data\DB1.AvaliacaoTecnica_log.ldf">
-      <DependentUpon>DB1.AvaliacaoTecnica.mdf</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">

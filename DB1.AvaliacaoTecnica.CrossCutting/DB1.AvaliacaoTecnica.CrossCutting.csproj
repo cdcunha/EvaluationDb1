@@ -61,6 +61,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DB1.AvaliacaoTecnica.ApplicationService\DB1.AvaliacaoTecnica.ApplicationService.csproj">
+      <Project>{feafa1a9-749a-47fc-8941-41d4f64e204d}</Project>
+      <Name>DB1.AvaliacaoTecnica.ApplicationService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DB1.AvaliacaoTecnica.Domain\DB1.AvaliacaoTecnica.Domain.csproj">
       <Project>{18EC9A6D-AFFC-4002-A78D-ED04A777F740}</Project>
       <Name>DB1.AvaliacaoTecnica.Domain</Name>

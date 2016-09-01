@@ -5,6 +5,8 @@ using DB1.AvaliacaoTecnica.Infrastructure.Repositories;
 using DB1.AvaliacaoTecnica.SharedKernel.Events;
 using DB1.AvaliacaoTecnica.SharedKernel;
 using Microsoft.Practices.Unity;
+using DB1.AvaliacaoTecnica.Domain.Services;
+using DB1.AvaliacaoTecnica.ApplicationService;
 
 namespace DB1.AvaliacaoTecnica.CrossCutting
 {
@@ -18,13 +20,13 @@ namespace DB1.AvaliacaoTecnica.CrossCutting
         {
             container.RegisterType<StoreDataContext, StoreDataContext>(new HierarchicalLifetimeManager());
             container.RegisterType<IUnitOfWork, UnitOfWork>(new HierarchicalLifetimeManager());
-            container.RegisterType<ICandidateRepository, CandidateRepository>(new HierarchicalLifetimeManager());
-            //container.RegisterType<ICandidateTechnologyRepository, CandidateTechnologyRepository>(new HierarchicalLifetimeManager());
             container.RegisterType<IVacancyRepository, VacancyRepository>(new HierarchicalLifetimeManager());
-            //container.RegisterType<IVacancyTechnologyRepository, VacancyTechnologyRepository>(new HierarchicalLifetimeManager());
             container.RegisterType<ITechnologyRepository, TechnologyRepository>(new HierarchicalLifetimeManager());
 
-            container.RegisterType<IHandler<DomainNotification>, DomainNotificationHandler>(new HierarchicalLifetimeManager);
+            container.RegisterType<ITechnologyApplicationService, TechnologyApplicationService>(new HierarchicalLifetimeManager());
+            container.RegisterType<IVacancyApplicationService, VacancyApplicationService>(new HierarchicalLifetimeManager());
+
+            container.RegisterType<IHandler<DomainNotification>, DomainNotificationHandler>(new HierarchicalLifetimeManager());
         }
     }
 }
