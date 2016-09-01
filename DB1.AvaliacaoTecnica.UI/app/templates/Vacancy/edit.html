@@ -1,0 +1,33 @@
+﻿<h3>Edição da Vaga</h3>
+
+<div class="form-group">
+    <label>Vaga</label>
+    <input ng-model="vm.vacancy.description"
+           type="text"
+           class="form-control"
+           required />
+</div>
+
+<div class="form-group">
+    <label>Categoria</label>
+    <select ng-model="vm.vacancy.technology" class="form-control">
+        <option value="{{ technology.id }}" ng-repeat="technology in vm.technologies">{{ technology.description }}</option>
+    </select>
+</div>
+
+<div class="form-group">
+    <label for="email">Descrição</label>
+    <input ng-model="vm.vacancy.description"
+           type="text"
+           class="form-control"
+           required />
+</div>
+
+<br />
+<div class="clearfix"></div>
+
+<p class="text-center">
+    <button class="btn btn-primary btn-lg" ng-click="vm.save()">
+        Salvar
+    </button>
+</p>

@@ -1,0 +1,58 @@
+﻿<h3 class="text-center">Tecnologias</h3>
+
+<div class="col-md-8">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="text-center">#</th>
+                <th class="text-center">Tecnologia</th>
+                <th class="text-center"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="technology in vm.technologies">
+                <td class="text-center">{{ technology.id }}</td>
+                <td>{{ technology.description }}</td>
+                <td class="text-center">
+                    <div class="button-group">
+                        <button class="btn btn-default btn-sm" ng-click="vm.loadTechnology(technology)"><i class="fa fa-edit"></i></button>
+                        <button class="btn btn-danger btn-sm" ng-click="vm.removeTechnology(technology)"><i class="fa fa-remove"></i></button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="col-md-4">
+    <div class="panel panel-default">
+        <div class="panel-heading text-center">Tecnologia</div>
+        <div class="panel-body">
+            <div class="form-group" ng-class="{ 'has-error' : description.$invalid }">
+                <label for="description">Descrição</label>
+                <input ng-model="vm.technology.description"
+                       ng-minlength="3"
+                       ng-maxlength="20"
+                       type="text"
+                       class="form-control"
+                       id="description"
+                       name="description"
+                       placeholder="Descrição da Tecnologia"
+                       required />
+            </div>
+
+            <button type="button"
+                    class="btn btn-primary btn-block"
+                    ng-disabled="vm.technology.description == ''"
+                    ng-click="vm.saveTechnology()">
+                Salvar
+            </button>
+            <button type="button"
+                    class="btn btn-default btn-block"
+                    ng-show="vm.technology.id != 0"
+                    ng-click="vm.cancel()">
+                Cancelar
+            </button>
+        </div>
+    </div>
+</div>
