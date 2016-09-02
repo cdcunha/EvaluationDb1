@@ -28,7 +28,9 @@ namespace DB1.AvalicaoTecnica.Api
             jsonSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
 
             formatters.JsonFormatter.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects;
-            
+
+            config.EnableCors();
+
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(

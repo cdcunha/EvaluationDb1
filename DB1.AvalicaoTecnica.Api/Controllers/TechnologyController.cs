@@ -8,7 +8,6 @@ using System.Web.Http;
 
 namespace DB1.AvaliacaoTecnica.Api.Controllers
 {
-    [HeaderFilterConfig]
     public class TechnologyController : BaseController
     {
         private readonly ITechnologyApplicationService _service;
@@ -50,7 +49,7 @@ namespace DB1.AvaliacaoTecnica.Api.Controllers
                 id: id,
                 description: (string)body.description
             );
-
+            
             var technology = _service.Update(command);
             return CreateResponse(HttpStatusCode.OK, technology);
         }

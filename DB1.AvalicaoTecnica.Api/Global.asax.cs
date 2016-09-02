@@ -14,8 +14,6 @@ namespace DB1.AvalicaoTecnica.Api
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            
-            GlobalConfiguration.Configuration.Filters.Add(new HeaderFilterConfig());
         }
     }
 }
