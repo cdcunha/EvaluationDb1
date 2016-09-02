@@ -10,7 +10,7 @@ using System.Web.Http.Cors;
 
 namespace DB1.AvaliacaoTecnica.Api.Controllers
 {
-    [EnableCors(origins: "http://localhost:8250/", headers: "*", methods: "*")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class BaseController : ApiController
     {
         public IHandler<DomainNotification> Notifications;

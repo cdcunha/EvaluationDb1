@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace DB1.AvalicaoTecnica.Api
 {
@@ -16,6 +17,8 @@ namespace DB1.AvalicaoTecnica.Api
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
+            EnableCrossSiteRequests(config);
+
             var container = new UnityContainer();
             ConfigureDependencyInjection(config, container);
 
@@ -28,8 +31,8 @@ namespace DB1.AvalicaoTecnica.Api
             jsonSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
 
             formatters.JsonFormatter.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects;
-
-            config.EnableCors();
+            
+            //config.EnableCors();
 
             config.MapHttpAttributeRoutes();
 
@@ -47,6 +50,15 @@ namespace DB1.AvalicaoTecnica.Api
 
             config.DependencyResolver = new UnityResolverHelper(container);
             DomainEvent.Container = new DomainEventsContainer(config.DependencyResolver);
+        }
+
+        private static void EnableCrossSiteRequests(HttpConfiguration config)
+        {
+            var cors = new EnableCorsAttribute(
+                origins: "*",
+                headers: "*",
+                methods: "*");
+            config.EnableCors(cors);
         }
     }
 }
