@@ -36,7 +36,7 @@ namespace DB1.AvaliacaoTecnica.CrossCutting
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            this._notifications = new List<DomainNotification>();
         }
     }
 }

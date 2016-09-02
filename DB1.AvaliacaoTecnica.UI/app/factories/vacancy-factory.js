@@ -1,10 +1,13 @@
 ﻿(function () {
     'use strict';
+
+    var SETTINGS = { 'SERVICE_URL': 'http://localhost:5322/' };
+
     angular.module('db1.avaliacao.tecnica').factory('VacancyFactory', VacancyFactory);
 
-    VacancyFactory.$inject = ['$http', '$rootScope', 'SETTINGS'];
+    //VacancyFactory.$inject = ['$http', '$rootScope', 'SETTINGS'];
 
-    function VacancyFactory($http, $rootScope, SETTINGS) {
+    function VacancyFactory($http, $rootScope) {
         return {
             get: get,
             getById: getById,

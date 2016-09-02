@@ -1,5 +1,6 @@
 ﻿using DB1.AvaliacaoTecnica.Domain.Commands.TechnologyCommands;
 using DB1.AvaliacaoTecnica.Domain.Services;
+using DB1.AvalicaoTecnica.Api;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -7,6 +8,7 @@ using System.Web.Http;
 
 namespace DB1.AvaliacaoTecnica.Api.Controllers
 {
+    [HeaderFilterConfig]
     public class TechnologyController : BaseController
     {
         private readonly ITechnologyApplicationService _service;
@@ -15,7 +17,7 @@ namespace DB1.AvaliacaoTecnica.Api.Controllers
         {
             this._service = service;
         }
-
+        
         [HttpGet]
         [Route("api/technologies")]
         public Task<HttpResponseMessage> Get()
@@ -23,7 +25,7 @@ namespace DB1.AvaliacaoTecnica.Api.Controllers
             var technologies = _service.Get();
             return CreateResponse(HttpStatusCode.Created, technologies);
         }
-        
+
         [HttpGet]
         [Route("api/technologies/{id}")]
         public Task<HttpResponseMessage> Get(int id)

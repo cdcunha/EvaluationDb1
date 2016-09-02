@@ -1,10 +1,13 @@
 ﻿(function () {
     'use strict';
+    var SETTINGS = { 'SERVICE_URL': 'http://localhost:5322/' };
+
     angular.module('db1.avaliacao.tecnica').factory('TechnologyFactory', TechnologyFactory);
 
-    TechnologyFactory.$inject = ['$http', '$rootScope', 'SETTINGS'];
+    //TechnologyFactory.$inject = ['$http', '$rootScope', 'SETTINGS'];
 
-    function TechnologyFactory($http, $rootScope, SETTINGS) {
+    //function TechnologyFactory($http, $rootScope, SETTINGS) {
+    function TechnologyFactory($http, $rootScope) {
         return {
             get: get,
             post: post,
@@ -13,6 +16,7 @@
         }
 
         function get() {
+            //return $http.get(SETTINGS.SERVICE_URL + 'api/technologies', $rootScope.header);
             return $http.get(SETTINGS.SERVICE_URL + 'api/technologies', $rootScope.header);
         }
 

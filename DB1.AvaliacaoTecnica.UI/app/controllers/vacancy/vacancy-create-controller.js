@@ -2,9 +2,9 @@
     'use strict';
     angular.module('db1.avaliacao.tecnica').controller('VacancyCreateCtrl', VacancyCreateCtrl);
 
-    VacancyCreateCtrl.$inject = ['$scope', '$location', 'VacancyFactory', 'TechnologyFactory'];
+    VacancyCreateCtrl.$inject = ['$scope', '$location', 'VacancyFactory'];
 
-    function VacancyCreateCtrl($scope, $location, VacancyFactory, TechnologyFactory) {
+    function VacancyCreateCtrl($scope, $location, VacancyFactory) {
         var vm = this;
         vm.vacancies = [];
         vm.vacancy = {
@@ -18,7 +18,7 @@
         vm.croppedImage = '';
         vm.save = save;
 
-        activate();
+        /*activate();
 
         function activate() {
             getTechnologies();
@@ -39,7 +39,7 @@
                 else
                     toastr.error('Sua requisição não pode ser processada', 'Falha na Requisição');
             }
-        }
+        }*/
 
         function save() {
             VacancyFactory.post(vm.vacancy)
@@ -59,7 +59,7 @@
             }
         }
 
-        var handleFileSelect = function (evt) {
+        /*var handleFileSelect = function (evt) {
             var file = evt.currentTarget.files[0];
             var reader = new FileReader();
             reader.onload = function (evt) {
@@ -70,5 +70,6 @@
             reader.readAsDataURL(file);
         };
         angular.element(document.querySelector('#file')).on('change', handleFileSelect);
+        */
     };
 })();
