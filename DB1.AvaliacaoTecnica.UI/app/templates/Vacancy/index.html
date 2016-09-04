@@ -8,10 +8,7 @@
     <thead>
         <tr>
             <th class="text-center">#</th>
-            <th class="text-center">Imagem</th>
-            <th class="text-center">Produto</th>
-            <th class="text-center">Preço</th>
-            <th class="text-center">Qtd</th>
+            <th class="text-center">Descrição</th>
             <th class="text-center"></th>
         </tr>
     </thead>
@@ -26,8 +23,8 @@
             <td class="text-center">{{ vacancy.description }}</td>
             <td class="text-center">
                 <div class="btn-group">
-                    <a href="#/vacancies/edit/{{ vacancy.id }}" class="btn btn-group btn-default btn-sm"><i class="fa fa-edit"></i></a>
-                    <a href="#/vacancies/remove/{{ vacancy.id }}" class="btn btn-group btn-danger btn-sm"><i class="fa fa-remove"></i></a>
+                    <a href="#/vacancies/edit/{{ vacancy.id }}" class="btn btn-group btn-default btn-sm"><i class="fa fa-edit">Editar</i></a>
+                    <a href="#/vacancies/remove/{{ vacancy.id }}" class="btn btn-group btn-danger btn-sm"><i class="fa fa-remove">Apagar</i></a>
                 </div>
             </td>
         </tr>

@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DB1.AvaliacaoTecnica.Domain.Models;
 using System.Data.Entity;
+using DB1.AvaliacaoTecnica.SharedKernel.Validation;
 
 namespace DB1.AvaliacaoTecnica.Infrastructure.Repositories
 {
@@ -24,40 +25,69 @@ namespace DB1.AvaliacaoTecnica.Infrastructure.Repositories
             this._context.Vacancies.Add(vacancy);
         }
 
+        private bool CheckDBConnectionAndNotificate()
+        {
+            return AssertionConcern.IsSatisfiedBy(
+                AssertionConcern.AssertTrue(this._context.Database.Exists(), "Sem conexão com o Banco de Dados")
+            );
+        }
+
         public void Delete(Vacancy vacancy)
         {
-            this._context.Vacancies.Remove(vacancy);
+            if (CheckDBConnectionAndNotificate())
+                this._context.Vacancies.Remove(vacancy);
         }
 
         public Vacancy GetDetails(int id)
         {
-            return _context.Vacancies
+            if (CheckDBConnectionAndNotificate())
+            {
+                return _context.Vacancies
                 .Include(x => x.Candidates)
                 .Include(x => x.VacancyTechnologies)
                 .Where(x => x.Id == id)
                 .FirstOrDefault();
+            }
+            else
+                return null;
         }
         public List<Vacancy> Get()
         {
-            return this._context.Vacancies
+            if (CheckDBConnectionAndNotificate())
+            {
+                return this._context.Vacancies
                 .OrderBy(x => x.Description).ToList();
+            }
+            else
+                return null;
         }
 
         public Vacancy GetHeader(int id)
         {
-            return this._context.Vacancies.Find(id);
+            if (CheckDBConnectionAndNotificate())
+            {
+                return this._context.Vacancies.Find(id);
+            }
+            else
+                return null;
         }
 
         public List<Vacancy> Get(string description)
         {
-            return this._context.Vacancies
+            if (CheckDBConnectionAndNotificate())
+            {
+                return this._context.Vacancies
                 .Where(x => x.Description == description)
                 .OrderBy(x => x.Description).ToList();
+            }
+            else
+                return null;
         }
 
         public void Update(Vacancy vacancy)
         {
-            this._context.Entry<Vacancy>(vacancy).State = EntityState.Modified;
+            if (CheckDBConnectionAndNotificate())
+                this._context.Entry<Vacancy>(vacancy).State = EntityState.Modified;
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DB1.AvaliacaoTecnica.Domain.Models;
 using System.Data.Entity;
+using DB1.AvaliacaoTecnica.SharedKernel.Validation;
 
 namespace DB1.AvaliacaoTecnica.Infrastructure.Repositories
 {
@@ -17,6 +18,13 @@ namespace DB1.AvaliacaoTecnica.Infrastructure.Repositories
         public TechnologyRepository(StoreDataContext context)
         {
             this._context = context;
+        }
+
+        private bool HasDBConnectionAndNotificate()
+        {
+            return AssertionConcern.IsSatisfiedBy(
+                AssertionConcern.AssertTrue(this._context.Database.Exists(), "Sem conexão com o Banco de Dados")
+            );
         }
 
         public void Create(Technology technology)

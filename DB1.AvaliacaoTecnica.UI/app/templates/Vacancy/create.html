@@ -1,27 +1,90 @@
 ﻿<h3>Nova Vaga</h3>
 
-<div class="form-group">
-    <label>Descrição</label>
-    <input ng-model="vm.vacancy.description"
-           type="text"
-           class="form-control"
-           required />
+<div class="container-fluid">
+    <div class="row content">
+        <div class="form-group">
+            <label>Descrição</label>
+            <input ng-model="vm.vacancy.description"
+                   type="text"
+                   class="form-control"
+                   required />
+        </div>
+    </div>
+
+    <!--
+    <div class="form-group">
+        <label>Tecnologias</label>
+        <select ng-model="vm.vacancy.technology" class="form-control">
+            <option value="{{ technology.id }}" ng-repeat="technology in vm.technologies">{{ technology.description }}</option>
+        </select>
+    </div>
+    -->
+    <br />
+
+    <div class="row content">
+        <div class="col-md-8">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="text-center">#</th>
+                        <th class="text-center">Tecnologia</th>
+                        <th class="text-center"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="technology in vm.technologies">
+                        <td class="text-center">{{ technology.id }}</td>
+                        <td>{{ technology.description }}</td>
+                        <td class="text-center">
+                            <div class="button-group">
+                                <button class="btn btn-default btn-sm" ng-click="vm.loadTechnology(technology)"><i class="fa fa-edit">Editar</i></button>
+                                <button class="btn btn-danger btn-sm" ng-click="vm.removeTechnology(technology)"><i class="fa fa-remove">Apagar</i></button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-md4">
+            <div class="panel panel-default">
+                <div class="panel-heading text-center">Tecnologia</div>
+                <div class="panel-body">
+                    <div class="form-group" ng-class="{ 'has-error' : description.$invalid }">
+                        <label for="description">Descrição</label>
+                        <input ng-model="vm.technology.description"
+                               ng-minlength="3"
+                               ng-maxlength="20"
+                               type="text"
+                               class="form-control"
+                               id="description"
+                               name="description"
+                               placeholder="Descrição da Tecnologia"
+                               required />
+                    </div>
+
+                    <button type="button"
+                            class="btn btn-primary btn-block"
+                            ng-disabled="vm.technology.description == ''"
+                            ng-click="vm.saveTechnology()">
+                        Salvar
+                    </button>
+                    <button type="button"
+                            class="btn btn-default btn-block"
+                            ng-show="vm.technology.id != 0"
+                            ng-click="vm.cancel()">
+                        Cancelar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row  content">
+        <p class="text-center">
+            <button class="btn btn-primary btn-lg" ng-click="vm.save()">
+                Salvar
+            </button>
+        </p>
+    </div>
 </div>
-
-<!--
-<div class="form-group">
-    <label>Tecnologias</label>
-    <select ng-model="vm.vacancy.technology" class="form-control">
-        <option value="{{ technology.id }}" ng-repeat="technology in vm.technologies">{{ technology.description }}</option>
-    </select>
-</div>
-        -->
-
-<br />
-<div class="clearfix"></div>
-
-<p class="text-center">
-    <button class="btn btn-primary btn-lg" ng-click="vm.save()">
-        Salvar
-    </button>
-</p>

@@ -9,7 +9,7 @@
         vm.technologies = [];
         vm.technology = {
             id: 0,
-            title: ''
+            description: ''
         };
         vm.saveTechnology = saveTechnology;
         vm.loadTechnology = loadTechnology;
@@ -34,8 +34,12 @@
             function fail(error) {
                 if (error.status == 401)
                     toastr.error('Você não tem permissão para ver esta página', 'Requisição não autorizada');
-                else
-                    toastr.error('Sua requisição não pode ser processada', 'Falha na Requisição');
+                else {
+                    var erros = error.data.errors;
+                    for (var i = 0; i < erros.length; ++i) {
+                        toastr.error(erros[i].value, 'Falha na Requisição')
+                    }
+                }
             }
         }
 
@@ -61,7 +65,6 @@
                 for (var i = 0; i < erros.length; ++i) {
                     toastr.error(erros[i].value, 'Falha na Requisição')
                 }
-                //toastr.error('Sua requisição não pode ser processada', 'Falha na Requisição');
             }
             clearTechnology();
         }
@@ -72,11 +75,14 @@
                  .catch(fail);
 
             function success(response) {
-                toastr.success('Tecnologia <strong>' + response.title + '</strong> alterada com sucesso', 'Sucesso');
+                toastr.success('Tecnologia <strong>' + response.description + '</strong> alterada com sucesso', 'Sucesso');
             }
 
             function fail(error) {
-                toastr.error('Sua requisição não pode ser processada', 'Falha na Requisição');
+                var erros = error.data.errors;
+                for (var i = 0; i < erros.length; ++i) {
+                    toastr.error(erros[i].value, 'Falha na Requisição')
+                }
             }
             clearTechnology();
         }
@@ -88,13 +94,16 @@
                  .catch(fail);
 
             function success(response) {
-                toastr.success('Tecnologia <strong>' + response.title + '</strong> removida com sucesso', 'Sucesso');
+                toastr.success('Tecnologia <strong>' + response.description + '</strong> removida com sucesso', 'Sucesso');
                 var index = vm.technologies.indexOf(technology);
                 vm.technologies.splice(index, 1);
             }
 
             function fail(error) {
-                toastr.error('Sua requisição não pode ser processada', 'Falha na Requisição');
+                var erros = error.data.errors;
+                for (var i = 0; i < erros.length; ++i) {
+                    toastr.error(erros[i].value, 'Falha na Requisição')
+                }
             }
 
             clearTechnology();
@@ -111,7 +120,7 @@
         function clearTechnology() {
             vm.technology = {
                 id: 0,
-                title: ''
+                description: ''
             };
         }
     };

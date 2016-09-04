@@ -24,7 +24,10 @@
             }
 
             function fail(error) {
-                toastr.error('Sua requisição não pode ser processada', 'Falha na Requisição');
+                var erros = error.data.errors;
+                for (var i = 0; i < erros.length; ++i) {
+                    toastr.error(erros[i].value, 'Falha na Requisição')
+                }
             }
         }
     };

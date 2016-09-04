@@ -6,6 +6,11 @@ namespace DB1.AvaliacaoTecnica.Infrastructure.Persistence
     {
         private StoreDataContext _context;
 
+        public UnitOfWork(StoreDataContext context)
+        {
+            this._context = context;
+        }
+
         public void Commit()
         {
             _context.SaveChanges();

@@ -8,8 +8,6 @@
         var vm = this;
         vm.vacancies = [];
         vm.vacancy = {
-            title: '',
-            technology: 0,
             description: '',
             price: 0,
             image: '',
@@ -47,15 +45,19 @@
                 .catch(fail);
 
             function success(response) {
-                toastr.success('Vaga <strong>' + response.title + '</strong> cadastrada com sucesso', 'Vaga Cadastrada');
+                toastr.success('Vaga <strong>' + response.description + '</strong> cadastrada com sucesso', 'Vaga Cadastrada');
                 $location.path('/vacancies');
             }
 
             function fail(error) {
                 if (error.status == 401)
                     toastr.error('Você não tem permissão para ver esta página', 'Requisição não autorizada');
-                else
-                    toastr.error('Sua requisição não pode ser processada', 'Falha na Requisição');
+                else {
+                    var erros = error.data.errors;
+                    for (var i = 0; i < erros.length; ++i) {
+                        toastr.error(erros[i].value, 'Falha na Requisição')
+                    }
+                }   
             }
         }
 

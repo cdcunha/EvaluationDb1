@@ -16,7 +16,6 @@
         }
 
         function get() {
-            //return $http.get(SETTINGS.SERVICE_URL + 'api/technologies', $rootScope.header);
             return $http.get(SETTINGS.SERVICE_URL + 'api/technologies', $rootScope.header);
         }
 
